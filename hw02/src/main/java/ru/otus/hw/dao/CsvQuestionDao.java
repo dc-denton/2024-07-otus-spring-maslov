@@ -23,11 +23,10 @@ public class CsvQuestionDao implements QuestionDao {
 
     @Override
     public List<Question> findAll() {
-        List<Question> questions;
         InputStream inputStream = getFileAsStream(fileNameProvider.getTestFileName());
         try (InputStreamReader streamReader = new InputStreamReader(inputStream);
              BufferedReader reader = new BufferedReader(streamReader)) {
-            questions = new CsvToBeanBuilder<QuestionDto>(reader)
+            List<Question> questions = new CsvToBeanBuilder<QuestionDto>(reader)
                     .withType(QuestionDto.class)
                     .withSkipLines(1)
                     .withSeparator(';')
@@ -36,15 +35,15 @@ public class CsvQuestionDao implements QuestionDao {
                     .stream()
                     .map(QuestionDto::toDomainObject)
                     .collect(Collectors.toList());
+
+            if (questions.isEmpty()) {
+                throw new QuestionReadException("There are no questions in the source.");
+            }
+
+            return questions;
         } catch (IOException | RuntimeException e) {
             throw new QuestionReadException("Error reading questions", e);
         }
-
-        if (questions.isEmpty()) {
-            throw new QuestionReadException("There are no questions in the source.");
-        }
-
-        return questions;
     }
 
     private InputStream getFileAsStream(String fileName) {
