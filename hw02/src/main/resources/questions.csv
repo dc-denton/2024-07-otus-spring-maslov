@@ -1,0 +1,17 @@
+# Добавить сюда своих вопросов. Эту строку надо пропустить при настройке CsvToBean (withSkipLines)
+What color is Jim's red gun?;Blue%false|Green%true|Yellow%false
+How does Jim spell his first name?;JMI%false|MIJ%true|IJM%false
+If Dan was stuck in Mexico City, how many days would it take before he would eat?;Dan-Food=Time%false|Mexican food is evil%false|Mexican food is good. Dan is evil%true
+When is Jim's birthday?;The day he was born%false|June 9, 1994%true|Today if you have a present%false
+What is Princess What's Her Name's real name?;What's Her Name%true|HEY YOU!%false|Chip Butty%false
+Can Jim speak French?;Oui%false|Non%true|Michelle, ma belle, sont les mots qui vont tres bien ensemble%false
+Does Jim have piranha in his aquarium?;A%false|B%false|Both A and B%true
+How can you easily complete this level?;Press reset%true|Follow the path of least resistance%false|What!? You're almost done!%false
+If cigarettes cause cancer, what causes Capricorn?;Poor-fitting shoes in southern France%false|Dental floss%false|One and one half pounds of butter%true
+Who is the king of the animals in Africa?;Marimba%false|Help, I can't swimba%false|Earthworm Jimba%true
+Who are you?;Who, who, who, who?%true|I really want to know%false|Now tell me--who are you?%false
+Seven times seven equals:;49%false|Forty-nine%false|C'mon, I really need this power-up!%true
+W.W.W. stands for:;Weewy Wascawy Wabbit%true|World War Won%false|Keep On Truckin'%false
+Can Psy-Crow beat Jim at arm wrestling?;Yes%false|Jim has no arms%true|No%false
+What is Jim's favorite fighting game?;Mortal Wombat IV%false|Samurai Slowdown%true|Kill Her In Stink%false
+When Peter Puppy gets angry, he:;Counts to 10%false|Acts like he's been 'belted by gamma rays'%true|Pretends he's a rock band and trashes hotel rooms%false
