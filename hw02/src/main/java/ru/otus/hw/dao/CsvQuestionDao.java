@@ -37,11 +37,11 @@ public class CsvQuestionDao implements QuestionDao {
                     .collect(Collectors.toList());
 
             if (questions.isEmpty()) {
-                throw new QuestionReadException("There are no questions in the source.");
+                throw new QuestionReadException("There are no questions in the source", new RuntimeException());
             }
 
             return questions;
-        } catch (IOException | RuntimeException e) {
+        } catch (IOException e) {
             throw new QuestionReadException("Error reading questions", e);
         }
     }
