@@ -1,0 +1,13 @@
+${AnsiColor.0}
+${AnsiBackground.237}  ______           _   _                                          _ _                ___       ____               ${AnsiBackground.DEFAULT}
+${AnsiBackground.239} |  ____|         | | | |                                         | |               |__ \     / __ \      (_)     ${AnsiBackground.DEFAULT}
+${AnsiBackground.241} | |__   __ _ _ __| |_| |____   _   _____  _ __ _ __ ___          | |_ _ __ ___        ) |   | |  | |_   _ _ ____ ${AnsiBackground.DEFAULT}
+${AnsiBackground.243} |  __| / _` | '__| __| '_ \ \ / \ / / _ \| '__| '_ ` _ \     _   | | | '_ ` _ \      / /    | |  | | | | | |_  / ${AnsiBackground.DEFAULT}
+${AnsiBackground.245} | |___| (_| | |  | |_| | | \ V   V / (_) | |  | | | | | |   | |__| | | | | | | |    / /_    | |__| | |_| | |/ /  ${AnsiBackground.DEFAULT}
+${AnsiBackground.247} |______\__,_|_|   \__|_| |_|\_/ \_/ \___/|_|  |_| |_| |_|    \____/|_|_| |_| |_|   |____|    \___\_\\__,_|_/___| ${AnsiBackground.DEFAULT}
+${AnsiColor.DEFAULT}
+  +-+-+-+-+-+-+-+-+  +-+-+-+-+-+-+  +-+-+-+-+  +-+  +-+-+-+-+-+-+-+-+-+
+   З Е М Л Я Н О Й    Ч Е Р В Я К    Д Ж И М    2    В И К Т О Р И Н А
+  +-+-+-+-+-+-+-+-+  +-+-+-+-+-+-+  +-+-+-+-+  +-+  +-+-+-+-+-+-+-+-+-+
+
+Powered by Spring Boot ${spring-boot.version}
