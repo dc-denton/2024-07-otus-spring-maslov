@@ -3,6 +3,7 @@ package ru.otus.hw.shell;
 import lombok.RequiredArgsConstructor;
 import org.springframework.shell.standard.ShellComponent;
 import org.springframework.shell.standard.ShellMethod;
+import ru.otus.hw.service.LocalizedIOService;
 import ru.otus.hw.service.TestRunnerService;
 
 @ShellComponent
@@ -10,9 +11,11 @@ import ru.otus.hw.service.TestRunnerService;
 public class TestRunShellCommands {
     private final TestRunnerService testRunnerService;
 
+    private final LocalizedIOService ioService;
+
     @ShellMethod(key = {"run", "r", "See Jim Run, Run Jim Run"}, value = "Run Earthworm Jim 2 Quiz")
-    public String runTest() {
+    public void runTest() {
         testRunnerService.run();
-        return "\nПройти тест еще раз?";
+        ioService.printLineLocalized("TestRunShellCommands.another.test");
     }
 }
