@@ -3,7 +3,7 @@ package ru.otus.hw.repositories;
 import lombok.RequiredArgsConstructor;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcOperations;
 import org.springframework.stereotype.Repository;
-import ru.otus.hw.mappers.AuthorRowMapper;
+import ru.otus.hw.repositories.mappers.AuthorRowMapper;
 import ru.otus.hw.models.Author;
 import java.util.List;
 import java.util.Map;

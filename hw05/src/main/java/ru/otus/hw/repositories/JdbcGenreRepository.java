@@ -4,7 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcOperations;
 import org.springframework.stereotype.Repository;
-import ru.otus.hw.mappers.GenreRowMapper;
+import ru.otus.hw.repositories.mappers.GenreRowMapper;
 import ru.otus.hw.models.Genre;
 
 import java.util.Collections;

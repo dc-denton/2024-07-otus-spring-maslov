@@ -7,7 +7,7 @@ import org.springframework.jdbc.core.namedparam.NamedParameterJdbcOperations;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.stereotype.Repository;
 import ru.otus.hw.exceptions.EntityNotFoundException;
-import ru.otus.hw.mappers.BookRowMapper;
+import ru.otus.hw.repositories.mappers.BookRowMapper;
 import ru.otus.hw.models.Book;
 
 import java.util.Collections;
@@ -62,11 +62,8 @@ public class JdbcBookRepository implements BookRepository {
     @Override
     public void deleteById(long id) {
         Map<String, Object> params = Collections.singletonMap("id", id);
-        var deleteResult = jdbc.update("delete from books " +
+        jdbc.update("delete from books " +
                                                 "where id = :id", params);
-        if (deleteResult == 0) {
-            throw new EntityNotFoundException("Book with id %d not found".formatted(id));
-        }
     }
 
     private Book insert(Book book) {
