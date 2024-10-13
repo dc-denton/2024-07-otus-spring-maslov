@@ -1,0 +1,121 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
+
+
+    <changeSet id="1" author="dc_denton">
+        <preConditions onFail="WARN">
+            <not>
+                <columnExists tableName="books" columnName="genre_id"/>
+            </not>
+        </preConditions>
+        <comment>Удаление столбца genre_id в таблице books</comment>
+        <dropColumn tableName="books" columnName="genre_id"/>
+    </changeSet>
+
+    <changeSet id="2" author="dc_denton">
+        <preConditions onFail="WARN">
+            <not>
+                <tableExists tableName="comments"/>
+            </not>
+        </preConditions>
+        <comment>Создание таблицы comments</comment>
+        <createTable tableName="comments">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="book_id" type="bigint">
+                <constraints deleteCascade="true" foreignKeyName="fk_comments_books" references="books(id)"/>
+            </column>
+            <column name="text" type="varchar(255)"/>
+        </createTable>
+        <rollback>
+            <delete tableName="comments"/>
+        </rollback>
+    </changeSet>
+
+    <changeSet id="3" author="dc_denton">
+        <preConditions onFail="WARN">
+            <tableExists tableName="comments"/>
+        </preConditions>
+        <comment>Наполнение таблицы comments данными</comment>
+        <insert tableName="comments">
+            <column name="book_id" value="1"/>
+            <column name="text" value="text_1"/>
+        </insert>
+        <insert tableName="comments">
+            <column name="book_id" value="1"/>
+            <column name="text" value="text_2"/>
+        </insert>
+        <insert tableName="comments">
+            <column name="book_id" value="1"/>
+            <column name="text" value="text_3"/>
+        </insert>
+        <insert tableName="comments">
+            <column name="book_id" value="2"/>
+            <column name="text" value="text_4"/>
+        </insert>
+        <insert tableName="comments">
+            <column name="book_id" value="2"/>
+            <column name="text" value="text_5"/>
+        </insert>
+        <insert tableName="comments">
+            <column name="book_id" value="3"/>
+            <column name="text" value="text_6"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="4" author="dc_denton">
+        <preConditions onFail="WARN">
+            <not>
+                <tableExists tableName="books_genres"/>
+            </not>
+        </preConditions>
+        <comment>Создание таблицы books_genres</comment>
+        <createTable tableName="books_genres">
+            <column name="book_id" type="bigint" autoIncrement="true">
+                <constraints deleteCascade="true" primaryKey="true" foreignKeyName="fk_books_genres_books" references="books(id)"/>
+            </column>
+            <column name="genre_id" type="bigint">
+                <constraints deleteCascade="true" primaryKey="true" foreignKeyName="fk_books_genres_genres" references="genres(id)"/>
+            </column>
+        </createTable>
+        <rollback>
+            <delete tableName="books_genres"/>
+        </rollback>
+    </changeSet>
+
+    <changeSet id="5" author="dc_denton">
+        <preConditions onFail="WARN">
+            <tableExists tableName="books_genres"/>
+        </preConditions>
+        <comment>Наполнение таблицы books_genres данными</comment>
+        <insert tableName="books_genres">
+            <column name="book_id" value="1"/>
+            <column name="genre_id" value="1"/>
+        </insert>
+        <insert tableName="books_genres">
+            <column name="book_id" value="1"/>
+            <column name="genre_id" value="2"/>
+        </insert>
+        <insert tableName="books_genres">
+            <column name="book_id" value="2"/>
+            <column name="genre_id" value="2"/>
+        </insert>
+        <insert tableName="books_genres">
+            <column name="book_id" value="2"/>
+            <column name="genre_id" value="3"/>
+        </insert>
+        <insert tableName="books_genres">
+            <column name="book_id" value="3"/>
+            <column name="genre_id" value="1"/>
+        </insert>
+        <insert tableName="books_genres">
+            <column name="book_id" value="3"/>
+            <column name="genre_id" value="3"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>

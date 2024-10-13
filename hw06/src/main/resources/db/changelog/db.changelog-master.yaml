@@ -3,3 +3,5 @@ databaseChangeLog:
           file: db/changelog/init/schema.sql
     - include:
           file: db/changelog/init/data.sql
+    - include:
+          file: db/changelog/2024/2024-10-14_hw06-changeset.xml
