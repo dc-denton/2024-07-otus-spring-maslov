@@ -35,7 +35,7 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 @Import({JpaBookRepository.class, JpaGenreRepository.class, JpaAuthorRepository.class
         , BookRowMapper.class, AuthorRowMapper.class, GenreRowMapper.class, BookServiceImpl.class})
 @Transactional(propagation = Propagation.NEVER)
-public class BookServiceTest {
+public class BookServiceImplTest {
 
     @Autowired
     private BookServiceImpl bookService;

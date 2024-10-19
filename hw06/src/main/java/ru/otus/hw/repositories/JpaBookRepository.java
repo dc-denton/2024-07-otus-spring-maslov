@@ -9,6 +9,8 @@ import ru.otus.hw.models.Book;
 import java.util.Optional;
 import java.util.List;
 
+import static org.springframework.data.jpa.repository.EntityGraph.EntityGraphType.FETCH;
+
 @Repository
 @RequiredArgsConstructor
 public class JpaBookRepository implements BookRepository {
@@ -37,15 +39,14 @@ public class JpaBookRepository implements BookRepository {
     public Optional<Book> findById(long id) {
         return entityManager.createQuery("select b from Book b where b.id = :id", Book.class)
                 .setParameter("id", id)
-                .setHint("jakarta.persistence.fetchgraph"
-                        , entityManager.getEntityGraph("book-author-genres-entity-graph"))
+                .setHint(FETCH.getKey(), entityManager.getEntityGraph("book-author-genres-entity-graph"))
                 .getResultList().stream().findAny();
     }
 
     @Override
     public List<Book> findAll() {
         return entityManager.createQuery("select b from Book b", Book.class)
-                .setHint("jakarta.persistence.fetchgraph", entityManager.getEntityGraph("book-entity-graph"))
+                .setHint(FETCH.getKey(), entityManager.getEntityGraph("book-entity-graph"))
                 .getResultList();
     }
 }

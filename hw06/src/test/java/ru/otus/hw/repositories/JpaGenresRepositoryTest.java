@@ -22,9 +22,9 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class JpaGenresRepositoryTest {
 
     @Autowired
-    JpaGenreRepository genreRepository;
+    private JpaGenreRepository genreRepository;
 
-    List<Genre> dbGenres;
+    private List<Genre> dbGenres;
 
     @BeforeEach
     void setUp() {

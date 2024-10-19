@@ -21,7 +21,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 @Import({JpaCommentRepository.class, CommentServiceImpl.class
         , JpaBookRepository.class, JpaCommentRepository.class, CommentRowMapper.class})
 @Transactional(propagation = Propagation.NEVER)
-public class CommentServiceTest {
+public class CommentServiceImplTest {
 
     @Autowired
     private CommentServiceImpl commentService;

@@ -1,6 +1,5 @@
 package ru.otus.hw.repositories;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -23,17 +22,10 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class JpaAuthorRepositoryTest {
 
     @Autowired
-    JpaAuthorRepository authorRepository;
+    private JpaAuthorRepository authorRepository;
 
     @Autowired
-    TestEntityManager entityManager;
-
-    List<Author> dbAuthors;
-
-    @BeforeEach
-    void setUp() {
-        dbAuthors = getDbAuthors();
-    }
+    private TestEntityManager entityManager;
 
     @DisplayName("Должен загружать список всех авторов")
     @Test
