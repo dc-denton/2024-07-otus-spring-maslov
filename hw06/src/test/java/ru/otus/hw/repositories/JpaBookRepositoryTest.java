@@ -59,9 +59,7 @@ public class JpaBookRepositoryTest {
                 .matches(book -> book.getId() > 0)
                 .usingRecursiveComparison().ignoringExpectedNullFields().isEqualTo(expectedBook);
 
-        assertThat(bookRepository.findById(returnedBook.getId()))
-                .isPresent()
-                .get()
+        assertThat(entityManager.find(Book.class, returnedBook.getId()))
                 .isEqualTo(returnedBook);
     }
 
@@ -71,9 +69,7 @@ public class JpaBookRepositoryTest {
         Book expectedBook = new Book(1L, "BookTitle_10500", entityManager.find(Author.class, 2),
                 List.of(entityManager.find(Genre.class, 4), entityManager.find(Genre.class, 5)));
 
-        assertThat(bookRepository.findById(expectedBook.getId()))
-                .isPresent()
-                .get()
+        assertThat(entityManager.find(Book.class, expectedBook.getId()))
                 .isNotEqualTo(expectedBook);
 
         Book returnedBook = bookRepository.save(expectedBook);
@@ -81,9 +77,7 @@ public class JpaBookRepositoryTest {
                 .matches(book -> book.getId() > 0)
                 .usingRecursiveComparison().ignoringExpectedNullFields().isEqualTo(expectedBook);
 
-        assertThat(bookRepository.findById(returnedBook.getId()))
-                .isPresent()
-                .get()
+        assertThat(entityManager.find(Book.class, returnedBook.getId()))
                 .isEqualTo(returnedBook);
     }
 

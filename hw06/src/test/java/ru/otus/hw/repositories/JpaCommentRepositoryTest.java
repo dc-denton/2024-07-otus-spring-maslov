@@ -41,9 +41,7 @@ public class JpaCommentRepositoryTest {
     void shouldUpdateComment() {
         Comment expectedComment = new Comment(1L, "editedComment", entityManager.find(Book.class, 1));
 
-        assertThat(commentRepository.findById(expectedComment.getId()))
-                .isPresent()
-                .get()
+        assertThat(entityManager.find(Comment.class, expectedComment.getId()))
                 .isNotEqualTo(expectedComment);
 
         Comment returnedBook = commentRepository.save(expectedComment);
@@ -51,9 +49,7 @@ public class JpaCommentRepositoryTest {
                 .matches(book -> book.getId() > 0)
                 .usingRecursiveComparison().ignoringExpectedNullFields().isEqualTo(expectedComment);
 
-        assertThat(commentRepository.findById(returnedBook.getId()))
-                .isPresent()
-                .get()
+        assertThat(entityManager.find(Comment.class, returnedBook.getId()))
                 .isEqualTo(returnedBook);
     }
 
@@ -66,9 +62,7 @@ public class JpaCommentRepositoryTest {
                 .matches(book -> book.getId() > 0)
                 .usingRecursiveComparison().ignoringExpectedNullFields().isEqualTo(expectedComment);
 
-        assertThat(commentRepository.findById(returnedComment.getId()))
-                .isPresent()
-                .get()
+        assertThat(entityManager.find(Comment.class, returnedComment.getId()))
                 .isEqualTo(returnedComment);
     }
 
